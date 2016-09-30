@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">Certamen 2</string>
+    <string name="app_name">Git Finder</string>
+    <string name="search">buscar</string>
 </resources>
