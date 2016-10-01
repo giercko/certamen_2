@@ -7,6 +7,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import org.apache.http.HttpResponse;
@@ -22,25 +23,36 @@ public class ListaRepositoriosActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
-    TextView textview;
+    private TextView textview;
+    private TextView name_repo;
+    private TextView description_repo;
+    private TextView update_repo;
+    private ListView repo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_repositorios);
+        name_repo = (TextView)findViewById(R.id.name_repo);
+        description_repo = (TextView)findViewById(R.id.description_repo);
+        update_repo = (TextView)findViewById(R.id.update_repo);
+        repo = (ListView)findViewById(R.id.repo);
+
+
+
         Obtener_lista_repo tarea = new Obtener_lista_repo();
         Bundle bundle = this.getIntent().getExtras();
         tarea.execute(
                        bundle.getString("USER").toString()
         );
-        recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
-        recyclerView.setHasFixedSize(false);
+        //recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+       // recyclerView.setHasFixedSize(false);
         String[][] lista = tarea.resultado() ;
-        adapter = new Repo_adapter(lista);
-        layoutManager = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL, false);
-        recyclerView.setLayoutManager(layoutManager);
+        //adapter = new Repo_adapter(lista);
+        //layoutManager = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL, false);
+        //recyclerView.setLayoutManager(layoutManager);
 
-        recyclerView.setAdapter(adapter);
+        //recyclerView.setAdapter(adapter);
 
 
     }
@@ -97,6 +109,9 @@ public class ListaRepositoriosActivity extends AppCompatActivity {
             if (result) {
                 if (no_existe == 1) {
                     repo_list = null;
+                }else{
+                    ArrayAdapter<String[]> adaptador = new ArrayAdapter<String[]>(ListaRepositoriosActivity.this, android.R.layout.list_content, repo_list);
+                    repo.setAdapter(adaptador);
                 }
             }
         }
