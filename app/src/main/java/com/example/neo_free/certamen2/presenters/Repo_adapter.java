@@ -1,14 +1,13 @@
-package com.example.neo_free.certamen2;
+package com.example.neo_free.certamen2.presenters;
 
 import android.support.v7.widget.RecyclerView;
 
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
+import com.example.neo_free.certamen2.R;
 
 
 public class Repo_adapter extends RecyclerView.Adapter<Repo_adapter.ViewHolder>{
