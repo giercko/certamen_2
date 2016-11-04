@@ -56,7 +56,7 @@ public class ListaRepositoriosActivity extends AppCompatActivity {
 
 
     }
-    /*private class Obtener_lista_repo extends AsyncTask<String, Integer, Boolean> {
+    private class Obtener_lista_repo extends AsyncTask<String, Integer, Boolean> {
         private String[][] repo_list;
         private int no_existe;
 
@@ -115,5 +115,5 @@ public class ListaRepositoriosActivity extends AppCompatActivity {
                 }
             }
         }
-    }*/
+    }
 }

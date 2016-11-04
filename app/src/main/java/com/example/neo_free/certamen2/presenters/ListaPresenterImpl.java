@@ -22,7 +22,7 @@ import java.io.UnsupportedEncodingException;
  * Created by neo_free on 02/11/2016.
  */
 
-public class ListaPresenterImpl extends AsyncTask<String, Integer, Boolean> implements ListaPresenter  {
+public class ListaPresenterImpl extends AsyncTask<String, Tarjeta[], Tarjeta[]> implements ListaPresenter  {
     static String url_m =  "http://www.mocky.io/v2/57eee3822600009324111202";
 
     @Override
@@ -74,7 +74,14 @@ public class ListaPresenterImpl extends AsyncTask<String, Integer, Boolean> impl
 
 
     @Override
-    protected Boolean doInBackground(String... params) {
-        return null;
+    protected Tarjeta[] doInBackground(String... params) {
+        Tarjeta[] resultado = searchUser(params[0]);
+        return resultado;
     }
+
+    @Override
+    protected void onPostExecute(Tarjeta[] result){
+
+
+    };
 }
